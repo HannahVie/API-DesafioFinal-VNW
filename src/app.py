@@ -1,4 +1,8 @@
 # RESPONSAVEL POR CRIAR A APLICAÇÃO 
+import pymysql
+pymysql.install_as_MySQLdb()
+
+
 from flask import Flask
 from src.controller.colaborador_controller import bp_colaborador
 from src.model import db
