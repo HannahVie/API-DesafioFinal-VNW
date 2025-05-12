@@ -1,0 +1,63 @@
+tags:
+  - Reembolso
+summary: Buscar um reembolso por número de prestação
+description: Endpoint para buscar um reembolso específico usando o número da prestação de contas.
+
+parameters:
+  - name: num_prestacao
+    in: path
+    required: true
+    description: Número da prestação de contas do reembolso
+    schema:
+      type: integer
+      example: 1234
+
+responses:
+  200:
+    description: Reembolso encontrado com sucesso
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            id:
+              type: integer
+            colaborador:
+              type: string
+            empresa:
+              type: string
+            num_prestacao:
+              type: integer
+            descricao:
+              type: string
+            data:
+              type: string
+              format: date
+            tipo_reembolso:
+              type: string
+            centro_custo:
+              type: string
+            ordem_interna:
+              type: string
+            divisao:
+              type: string
+            pep:
+              type: string
+            moeda:
+              type: string
+            distancia_km:
+              type: string
+            valor_km:
+              type: string
+            valor_faturado:
+              type: number
+              format: float
+            despesa:
+              type: number
+              format: float
+            id_colaborador:
+              type: integer
+            status:
+              type: string
+  404:
+    description: Reembolso não encontrado

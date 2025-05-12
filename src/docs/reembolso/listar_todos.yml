@@ -1,0 +1,24 @@
+tags:
+  - Reembolso
+summary: Lista todos os reembolsos cadastrados
+description: Retorna uma lista de todos os reembolsos registrados no sistema
+responses:
+  200:
+    description: Lista de reembolsos retornada com sucesso
+    schema:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+          colaborador:
+            type: string
+          empresa:
+            type: string
+          tipo_reembolso:
+            type: string
+          valor_faturado:
+            type: string
+          status:
+            type: string

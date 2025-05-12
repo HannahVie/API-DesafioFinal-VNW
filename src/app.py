@@ -5,7 +5,7 @@ from src.model import db
 from config import Config
 from flask_cors import CORS
 from flasgger import Swagger
-
+from src.controller.reembolso_controller import bp_reembolso
 
 swagger_config = {
     "headers": [],
@@ -26,6 +26,7 @@ def create_app():
     app = Flask(__name__) # <-- instancia do Flask
     CORS(app, origins="*") # <---- A politica de CORS seja implementada em TODA A APLICAÇÃO 
     app.register_blueprint(bp_colaborador)
+    app.register_blueprint(bp_reembolso)
     app.config.from_object(Config)
     
     db.init_app(app) # Inicia a conexão com o banco de dados

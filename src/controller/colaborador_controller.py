@@ -9,8 +9,8 @@ from flasgger import swag_from
 # jsonify -> Trabalha com as respostas. Converte um dado em Json
 
 bp_colaborador = Blueprint('colaborador', __name__, url_prefix='/colaborador')
-
-@bp_colaborador.route('/todos-colaboradores')
+@bp_colaborador.route('/todos-colaboradores', methods=['GET'])
+@swag_from('../docs/colaborador/todos_colaboradores.yml')
 def pegar_dados_todos_colaboradores():
     
     colaboradores = db.session.execute(
@@ -44,6 +44,7 @@ def cadastrar_novo_colaborador():
 
 # Endereco/colaborador/atualizar/1
 @bp_colaborador.route('/atualizar/<int:id_colaborador>', methods=['PUT'])
+@swag_from('../docs/colaborador/atualizar_colaborador.yml')
 def atualizar_dados_do_colaborador(id_colaborador):
     
     dados_requisicao = request.get_json()
@@ -62,6 +63,7 @@ def atualizar_dados_do_colaborador(id_colaborador):
 
 
 @bp_colaborador.route('/login', methods=['POST'])
+@swag_from('../docs/colaborador/login.yml')
 def login():
     
     dados_requisicao = request.get_json()

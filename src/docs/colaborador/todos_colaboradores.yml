@@ -1,0 +1,13 @@
+tags:
+  - Colaborador
+description: Endpoint para listar todos os colaboradores
+
+responses:
+  200:
+    description: Lista de todos os colaboradores
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/Colaborador'
+  500:
+    description: Erro interno ao buscar colaboradores

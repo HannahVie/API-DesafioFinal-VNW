@@ -1,0 +1,32 @@
+tags:
+  - Colaborador
+description: Endpoint para atualizar os dados de um colaborador
+
+parameters:
+  - in: path
+    name: id_colaborador
+    required: true
+    type: integer
+    description: ID do colaborador que será atualizado
+  - in: body
+    name: corpo
+    required: true
+    schema:
+      type: object
+      properties:
+        nome:
+          type: string
+          example: João da Silva
+        cargo:
+          type: string
+          example: Gerente de TI
+        salario:
+          type: number
+          example: 3000.00
+responses:
+  200:
+    description: Dados do colaborador atualizados com sucesso
+  400:
+    description: Erro ao atualizar colaborador
+  404:
+    description: Colaborador não encontrado
