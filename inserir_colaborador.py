@@ -7,11 +7,11 @@ app = create_app()
 
 with app.app_context():
     novo_colaborador = Colaborador(
-        nome="Admin Teste",
-        email="admin@teste.com",
-        senha=hash_senha("senha123"),  # Senha com hash
+        nome="Mari",
+        email="Mariana@teste.com",
+        senha=hash_senha("1234"),  # Senha com hash
         cargo="Administrador",
-        salario=5000.00
+        salario=3000.00
     )
 
     db.session.add(novo_colaborador)

@@ -85,18 +85,12 @@ def login():
     
     if not colaborador:
         return jsonify({'mensagem': 'Usuario não encontrado'}), 404
-
-    # Aqui a senha vem direto do objeto original
-    if checar_senha(senha, colaborador.senha):
-        return jsonify({
-            'mensagem': 'Login realizado com sucesso',
-            'colaborador': colaborador.to_dict()  # Supondo que to_dict oculta a senha
-        }), 200
-    else:
-        return jsonify({'mensagem': 'Credenciais invalidas'}), 400
     
-    # if not colaborador:
-    #     return jsonify({'mensagem': 'Usuario não encontrado'}), 404
+    if checar_senha(senha, colaborador.senha):
+        return jsonify({'mensagem': 'Login realizado com sucesso'}), 200
+    else:
+        return jsonify({'mensagem': 'Credenciais inválidas'}), 400
+        
     
     # colaborador = colaborador.to_dict()
     
@@ -108,5 +102,6 @@ def login():
     #     return jsonify({'mensagem': 'Login realizado com sucesso'}), 200
     # else:
     #     return jsonify({'mensagem': 'Credenciais invalidas'}), 400
+    
     
 
